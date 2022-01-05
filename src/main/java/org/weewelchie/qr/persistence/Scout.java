@@ -5,11 +5,11 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name="person")
-public class Person implements Serializable {
+@Table(name="scout", uniqueConstraints = { @UniqueConstraint(columnNames = { "first_name", "last_name","dob" }) })
+public class Scout implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name="first_name")
@@ -27,11 +27,11 @@ public class Person implements Serializable {
     @Column(name="qrcode_id")
     private String QRCodeID = "";
 
-    public Person()
+    public Scout()
     {
 
     }
-    public Person(String firstName, String lastName, Date dob, String troop)
+    public Scout(String firstName, String lastName, Date dob, String troop)
     {
         this.setFirstName(firstName);
         this.setLastName(lastName);
@@ -39,8 +39,6 @@ public class Person implements Serializable {
         this.setTroop(troop);
         //Hash data into QRCode
         this.setQRCodeID();
-
-
     }
 
     public Long getId() {
@@ -95,13 +93,13 @@ public class Person implements Serializable {
     {
         //GenerateHash String from firstName,lastName,dob,troop
 
-        String qrCodeIDHash = "hahsh";
+        String qrCodeIDHash = "";
         this.setQRCodeID(qrCodeIDHash);
     }
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "Scout{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +

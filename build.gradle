@@ -57,6 +57,9 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework/spring-context-support
     implementation 'org.springframework:spring-context-support:5.3.14'
 
+    // https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.3'
+
 
 
 
